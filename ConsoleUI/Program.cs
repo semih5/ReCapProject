@@ -18,7 +18,6 @@ namespace ConsoleUI
                 Console.WriteLine( car.ModelYear + " " + car.Description + ". Daily Price;" + car.DailyPrice);
             }
 
-
         }
     }
 }
