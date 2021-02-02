@@ -16,12 +16,8 @@ namespace Business.Concrete
         }
         public List<Car> GetAll()
         {
-            return _carDal.GetAll();        
+            return _carDal.GetAll();
         }
 
-        public static implicit operator CarManager(Car v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.Memory
 {
-    public class InMemoryDal:ICarDal
+    public class InMemoryDal: ICarDal
     {
         List<Car> _cars;
         public InMemoryDal()
@@ -52,5 +52,6 @@ namespace DataAccess.Concrete.Memory
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
         }
+
     }
 }
