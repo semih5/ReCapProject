@@ -18,5 +18,10 @@ namespace Business.Concrete
         {
             return _carDal.GetAll();        
         }
+
+        public static implicit operator CarManager(Car v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
