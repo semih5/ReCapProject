@@ -13,10 +13,13 @@ namespace ConsoleUI
             ICarDal carDal = new InMemoryDal();
             CarManager carManager = new CarManager(carDal);
 
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine( car.ModelYear + " " + car.Description + ". Daily Price;" + car.DailyPrice);
-            }
+            //Console.WriteLine("Cars; ");
+            //foreach (var car in carManager.GetAll())
+            //{
+            //    Console.WriteLine( car.ModelYear + " " + car.Description + ". Daily Price;" + car.DailyPrice);
+            //}
+
+
 
         }
     }
