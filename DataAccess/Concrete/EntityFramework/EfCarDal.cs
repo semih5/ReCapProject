@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,13 +16,13 @@ namespace DataAccess.Concrete.EntityFramework
             using (CarRentalDatabaseContext context = new CarRentalDatabaseContext())
             {
                 var result = from c in context.Cars
-                             join b in context.Brands on c.BrandId equals b.Id
-                             join co in context.Colors on c.ColorId equals co.Id
+                             join b in context.Brands on c.BrandId equals b.BrandId
+                             join co in context.Colors on c.ColorId equals co.ColorId
                              select new CarDetailDto
                              {
                                  Id = c.Id,
-                                 BrandName = b.Name,
-                                 ColorName = co.Name,
+                                 BrandName = b.BrandName,
+                                 ColorName = co.ColorName,
                                  DailyPrice = c.DailyPrice,
                                  Description = c.Description,
                                  ModelYear = c.ModelYear
