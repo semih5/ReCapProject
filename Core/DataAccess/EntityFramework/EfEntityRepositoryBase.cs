@@ -8,11 +8,11 @@ using System.Text;
 
 namespace Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<IEntity>
+    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
-        public void Add(IEntity entity)
+        public void Add(TEntity entity)
         {
             using (TContext context = new TContext())
             {
@@ -22,7 +22,7 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public void Delete(IEntity entity)
+        public void Delete(TEntity entity)
         {
             using (TContext context = new TContext())
             {
@@ -32,7 +32,7 @@ namespace Core.DataAccess.EntityFramework
             }   
         }
 
-        public List<IEntity> GetAll(Expression<Func<IEntity, bool>> filter = null)
+        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
             {
@@ -41,15 +41,15 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public IEntity GetById(Expression<Func<IEntity, bool>> filter)
+        public TEntity GetById(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
             {
-                
+                return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
 
-        public void Update(IEntity entity)
+        public void Update(TEntity entity)
         {
             using (TContext context = new TContext())
             {
