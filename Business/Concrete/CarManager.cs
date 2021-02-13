@@ -27,7 +27,7 @@ namespace Business.Concrete
                 _carDal.Add(car);
                 return new SuccessResult(Messages.CarAdded);
             }
-            else
+            
             {
                 Console.WriteLine("The car couldn't have been added.");
                 return new ErrorResult(Messages.CarNameInvalid);
