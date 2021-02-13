@@ -48,20 +48,20 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarDetail()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.CarsListed);
         }
                         
-        IDataResult<List<Car>> ICarService.GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
-            return _carDal.GetAll().Where(c => c.BrandId == id); 
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll().Where(c => c.BrandId == id).ToList(), Messages.CarsListed);
         }
 
-        IDataResult<List<Car>> ICarService.GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetCarsByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id), Messages.CarsListed);
         }
 
-        IResult ICarService.Update(Car car)
+        public IResult Update(Car car)
         {
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
