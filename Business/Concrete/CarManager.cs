@@ -27,7 +27,7 @@ namespace Business.Concrete
                 _carDal.Add(car);
                 return new SuccessResult(Messages.CarAdded);
             }
-            
+            else
             {
                 Console.WriteLine("The car couldn't have been added.");
                 return new ErrorResult(Messages.CarNameInvalid);
@@ -53,7 +53,7 @@ namespace Business.Concrete
                         
         IDataResult<List<Car>> ICarService.GetCarsByBrandId(int id)
         {
-            return _carDal.GetAll().Where(c => c.BrandId == id).ToList(); 
+            return _carDal.GetAll().Where(c => c.BrandId == id); 
         }
 
         IDataResult<List<Car>> ICarService.GetCarsByColorId(int id)

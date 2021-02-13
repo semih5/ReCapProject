@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Core.Results.Concrete
 {
-    public class SuccessResult
+    public class SuccessResult:Result
     {
-        public SuccessResult(string message) : base(false, message)
+        public SuccessResult(string message) : base(true, message)
         {
 
         }
