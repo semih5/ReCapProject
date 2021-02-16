@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int userId)
         {
-            return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.Id == userId));
+            return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.UserId == userId));
         }
 
 

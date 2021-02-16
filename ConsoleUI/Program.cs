@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.Memory;
 using Entities.Concrete;
@@ -14,7 +15,7 @@ namespace ConsoleUI
             //CRUD();
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetail().Data)
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine("Id: {0} / Brand: {1} / Color: {2} / Price: {3}", car.Id, car.BrandName, car.ColorName, car.DailyPrice);
             }
@@ -49,6 +50,39 @@ namespace ConsoleUI
 
             //Delete
             carManager.Delete(car1);
+
+            // GetCarsByBrandId
+            foreach (var x in carManager.GetCarsByBrandId(256).Data)
+            {
+                Console.WriteLine(x.Description);
+            }
+
+            // GetCarsByColorId
+            foreach (var x in carManager.GetCarsByColorId(2).Data)
+            {
+                Console.WriteLine(x.BrandId);
+            }
+
+            // GetById
+            Console.WriteLine(carManager.GetById(3002).Data.ModelYear);
+
         }
+
+        private static void AddCustomer()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer cr2 = new Customer { CustomerId = 1, CustomerCompanyName = "SMH" };
+            Console.WriteLine(customerManager.AddCustomer(cr2).Message);
+        }
+
+        private static void AddUser()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            User cr1 = new User { UserFirstName = "JSN", UserLastName = "BRWN", UserEmail = "default", UserPassword = "pass" };
+            Console.WriteLine(userManager.AddUser(cr1).Message);
+        }
+
+
     }
+
 }

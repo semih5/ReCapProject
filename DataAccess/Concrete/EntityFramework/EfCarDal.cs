@@ -9,11 +9,11 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDatabaseContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, CarsInfoContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (CarRentalDatabaseContext context = new CarRentalDatabaseContext())
+            using (CarsInfoContext context = new CarsInfoContext())
             {
                 var result = from c in context.Cars
                              join b in context.Brand on c.BrandId equals b.BrandId

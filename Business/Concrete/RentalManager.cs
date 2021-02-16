@@ -20,6 +20,11 @@ namespace Business.Concrete
         }
         public IResult AddRental(Rental rental)
         {
+            if (rental.ReturnDate == null)
+            {
+                return new ErrorResult(Messages.NotAdded);
+            }
+
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.Added);
         }
@@ -44,6 +49,6 @@ namespace Business.Concrete
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.Updated);
-            }
+        }
     }
 }
