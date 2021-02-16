@@ -13,20 +13,20 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        IRentalService _rentalDal;
+        IRentalDal _rentalDal;
         public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
         }
         public IResult AddRental(Rental rental)
         {
-            _rentalDal.AddRental(rental);
+            _rentalDal.Add(rental);
             return new SuccessResult(Messages.Added);
         }
 
         public IResult DeleteRental(Rental rental)
         {
-            _rentalDal.DeleteRental(rental);
+            _rentalDal.Delete(rental);
             return new SuccessResult(Messages.Deleted);
         }
 
@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IResult UpdateRental(Rental rental)
         {
-            _rentalDal.UpdateRental(rental);
+            _rentalDal.Update(rental);
             return new SuccessResult(Messages.Updated);
             }
     }
