@@ -11,5 +11,9 @@ namespace Core.Results.Concrete
         {
 
         }
+        public SuccessDataResult(T data) : base(data, true)
+        {
+
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace ConsoleUI
             //CRUD();
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetail())
+            foreach (var car in carManager.GetCarDetail().Data)
             {
                 Console.WriteLine("Id: {0} / Brand: {1} / Color: {2} / Price: {3}", car.Id, car.BrandName, car.ColorName, car.DailyPrice);
             }
@@ -28,7 +28,7 @@ namespace ConsoleUI
             carManager.Add(car1);
 
             //Read
-            foreach (var x in carManager.GetAll())
+            foreach (var x in carManager.GetAll().Data)
             {
                 Console.WriteLine(x.Description);
 
