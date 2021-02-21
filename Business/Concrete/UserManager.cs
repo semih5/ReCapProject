@@ -9,6 +9,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq.Expressions;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -20,7 +22,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-       
+        [ValidationAspect(typeof(UserValidator))]
         public IResult AddUser(User user)
         {
             _userDal.Add(user);
@@ -33,8 +35,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
-        
-
         public IDataResult<List<User>> GetAllUsers()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.Listed);
@@ -45,7 +45,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.UserId == userId));
         }
 
-
+        [ValidationAspect(typeof(UserValidator))]
         public IResult UpdateUser(User user)
         {
             _userDal.Update(user);

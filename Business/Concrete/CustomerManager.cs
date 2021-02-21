@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Results.Abstract;
 using Core.Results.Concrete;
 using DataAccess.Abstract;
@@ -19,6 +21,7 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
         public IResult AddCustomer(Customer customer)
         {
             _customerDal.Add(customer);
@@ -42,6 +45,7 @@ namespace Business.Concrete
 
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
         public IResult UpdateCustomer(Customer customer)
         {
             _customerDal.Update(customer);
