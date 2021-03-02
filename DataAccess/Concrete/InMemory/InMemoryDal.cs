@@ -34,6 +34,11 @@ namespace DataAccess.Concrete.Memory
             _cars.Remove(car);
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
