@@ -45,6 +45,16 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.UserId == userId));
         }
 
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.UserEmail == email);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
         [ValidationAspect(typeof(UserValidator))]
         public IResult UpdateUser(User user)
         {

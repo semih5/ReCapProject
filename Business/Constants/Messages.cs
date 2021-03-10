@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -16,8 +17,14 @@ namespace Business.Constants
         public static string MaintenanceTime = "Maintenance time.";
         public static string Listed = "Cars listed.";
         public static string NotListed = "Couldn't be listed.";
-        
-        
+
+        public static string AuthorizationDenied = "Authorization denied.";
+        public static string AccessTokenCreated = "Access token created.";
+        public static string UserNotFound = "User not found";
+        public static string PasswordError = "Password error";
+        public static string SuccessfulLogin = "Successful login";
+        public static string UserAlreadyExists = "User already exists";
+        public static string UserRegistered = "User registered";
     }
 
 }
