@@ -1,4 +1,5 @@
 ﻿using Core.Utilities.IoC;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;

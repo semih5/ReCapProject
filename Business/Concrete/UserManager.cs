@@ -11,6 +11,7 @@ using System.Text;
 using System.Linq.Expressions;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
+using Core.Entities.Concrete;
 
 namespace Business.Concrete
 {
@@ -42,12 +43,12 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int userId)
         {
-            return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.UserId == userId));
+            return new SuccessDataResult<User>(_userDal.GetAll().SingleOrDefault(p => p.Id == userId));
         }
 
         public User GetByMail(string email)
         {
-            return _userDal.Get(u => u.UserEmail == email);
+            return _userDal.Get(u => u.Email == email);
         }
 
         public List<OperationClaim> GetClaims(User user)

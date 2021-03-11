@@ -1,4 +1,5 @@
-﻿using Core.Results.Abstract;
+﻿using Core.Entities.Concrete;
+using Core.Results.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;

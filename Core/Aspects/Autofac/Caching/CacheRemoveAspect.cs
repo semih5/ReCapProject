@@ -1,4 +1,6 @@
 ﻿using Castle.DynamicProxy;
+using Microsoft.Extensions.DependencyInjection;
+using Core.CrossCuttingConcerns.Caching;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 

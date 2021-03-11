@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Results.Abstract;
 using Core.Results.Concrete;
 using Core.Utilities.Security.Hashing;
@@ -52,9 +53,9 @@ namespace Business.Concrete
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var user = new User
             {
-                UserEmail = userForRegisterDto.Email,
-                UserFirstName = userForRegisterDto.FirstName,
-                UserLastName = userForRegisterDto.LastName,
+                Email = userForRegisterDto.Email,
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Status = true

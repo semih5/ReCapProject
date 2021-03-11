@@ -1,7 +1,6 @@
-﻿using Castle.Core.Configuration;
-using Core.Entities.Concrete;
+﻿using Core.Entities.Concrete;
 using Core.Extensions;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
